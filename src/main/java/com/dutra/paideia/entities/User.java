@@ -2,6 +2,7 @@ package com.dutra.paideia.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -15,14 +16,26 @@ public class User {
     private String name;
     private String password;
     private String email;
+    private String phone;
+    private LocalDate birthDate;
+
+    @ManyToMany
+    @JoinTable(name = "tb_user_role",
+    joinColumns = @JoinColumn(name = "User_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     public User() {}
-    public User(Long id, String name, String password, String email, Set<Role> roles) {
+
+    public User(Long id, String name, String password,
+                String email, String phone,
+                LocalDate birthDate, Set<Role> roles) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
+        this.phone = phone;
+        this.birthDate = birthDate;
         this.roles = roles;
     }
 
@@ -60,6 +73,22 @@ public class User {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     @Override
