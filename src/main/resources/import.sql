@@ -2,10 +2,13 @@ INSERT INTO tb_user (name, email, phone, password, birth_date) VALUES ('Maria Br
 INSERT INTO tb_user (name, email, phone, password, birth_date) VALUES ('Alex Green', 'alex@gmail.com', '977777777', '$2a$10$N7SkKCa3r17ga.i.dF9iy.BFUBL2n3b6Z1CWSZWi/qy7ABq/E6VpO', '1987-12-13');
 INSERT INTO tb_user (name, email, phone, password, birth_date) VALUES ('Ana Blue', 'ana@gmail.com', '977777777', '$2a$10$N7SkKCa3r17ga.i.dF9iy.BFUBL2n3b6Z1CWSZWi/qy7ABq/E6VpO', '1987-12-13');
 
-INSERT INTO tb_role (authority) VALUES ('ROLE_USER');
+INSERT INTO tb_role (authority) VALUES ('ROLE_STUDENT');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
+INSERT INTO tb_role (authority) VALUES ('ROLE_INSTRUCTOR');
 
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
+
+INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Curso de Java e POO', 'www.fsa.br/wp-content/uploads/bruxas.jpg', 'https://diariodonordeste.verdesmares.com.br/image');
