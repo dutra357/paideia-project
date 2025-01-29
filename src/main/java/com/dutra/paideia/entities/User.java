@@ -3,9 +3,7 @@ package com.dutra.paideia.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_user")
@@ -23,20 +21,25 @@ public class User {
     @JoinTable(name = "tb_user_role",
     joinColumns = @JoinColumn(name = "User_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    private final Set<Role> roles = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    private final List<Notification> notifications = new ArrayList<>();
 
     public User() {}
 
     public User(Long id, String name, String password,
                 String email, String phone,
-                LocalDate birthDate, Set<Role> roles) {
+                LocalDate birthDate) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.birthDate = birthDate;
-        this.roles = roles;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
     }
 
     public Long getId() {
