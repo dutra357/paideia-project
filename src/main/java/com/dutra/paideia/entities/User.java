@@ -19,7 +19,7 @@ public class User {
     private String phone;
     private LocalDate birthDate;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_user_role",
     joinColumns = @JoinColumn(name = "User_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
