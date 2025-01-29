@@ -2,9 +2,8 @@ package com.dutra.paideia.entities;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+
 @Entity
 @Table(name = "tb_lesson")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -21,7 +20,9 @@ public abstract class Lesson {
     @JoinTable(name = "tb_lessons_done",
             joinColumns = @JoinColumn(name = "lesson_id"),
             inverseJoinColumns = { @JoinColumn(name = "user_id"), @JoinColumn(name = "offer_id") })
-    private Set<Enrollement> enrollmentsDone = new HashSet<>();
+    private final Set<Enrollment> enrollmentsDone = new HashSet<>();
+    @OneToMany(mappedBy = "lesson")
+    private final List<Deliver> deliveries = new ArrayList<>();
 
     public Lesson() {}
     public Lesson(Long id, String title, Long position, Section section) {
@@ -63,8 +64,12 @@ public abstract class Lesson {
         this.section = section;
     }
 
-    public Set<Enrollement> getEnrollmentsDone() {
+    public Set<Enrollment> getEnrollmentsDone() {
         return enrollmentsDone;
+    }
+
+    public List<Deliver> getDeliveries() {
+        return deliveries;
     }
 
     @Override

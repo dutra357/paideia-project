@@ -4,13 +4,11 @@ import com.dutra.paideia.entities.pk.EnrollmentPK;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_enrollment")
-public class Enrollement {
+public class Enrollment {
     @EmbeddedId
     private final EnrollmentPK id = new EnrollmentPK();
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
@@ -21,11 +19,13 @@ public class Enrollement {
     private boolean onlyAvailable;
     @ManyToMany(mappedBy = "enrollmentsDone")
     private final Set<Lesson> lessonsDone = new HashSet<>();
+    @OneToMany(mappedBy = "enrollment")
+    private final List<Deliver> deliveries = new ArrayList<>();
 
-    public Enrollement() {}
-    public Enrollement(User user, Offer offer,
-                       Instant enrollMoment, Instant refundMoment,
-                       boolean available, boolean onlyAvailable) {
+    public Enrollment() {}
+    public Enrollment(User user, Offer offer,
+                      Instant enrollMoment, Instant refundMoment,
+                      boolean available, boolean onlyAvailable) {
         this.enrollMoment = enrollMoment;
         this.refundMoment = refundMoment;
         this.available = available;
@@ -82,11 +82,23 @@ public class Enrollement {
         this.onlyAvailable = onlyAvailable;
     }
 
+    public EnrollmentPK getId() {
+        return id;
+    }
+
+    public Set<Lesson> getLessonsDone() {
+        return lessonsDone;
+    }
+
+    public List<Deliver> getDeliveries() {
+        return deliveries;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Enrollement that = (Enrollement) o;
+        Enrollment that = (Enrollment) o;
         return Objects.equals(id, that.id);
     }
 

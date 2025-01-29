@@ -24,7 +24,7 @@ public class Deliver {
             @JoinColumn(name = "offer_id"),
             @JoinColumn(name = "user_id")
     })
-    private Enrollement enrollement;
+    private Enrollment enrollment;
     @ManyToOne
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
@@ -32,14 +32,14 @@ public class Deliver {
     public Deliver() {}
     public Deliver(Long id, String uri, Instant moment,
                    DeliverStatus status, String feedback,
-                   Integer correctCount, Enrollement enrollement, Lesson lesson) {
+                   Integer correctCount, Enrollment enrollment, Lesson lesson) {
         this.id = id;
         this.uri = uri;
         this.moment = moment;
         this.status = status;
         this.feedback = feedback;
         this.correctCount = correctCount;
-        this.enrollement = enrollement;
+        this.enrollment = enrollment;
         this.lesson = lesson;
     }
 
@@ -91,12 +91,12 @@ public class Deliver {
         this.correctCount = correctCount;
     }
 
-    public Enrollement getEnrollement() {
-        return enrollement;
+    public Enrollment getEnrollement() {
+        return enrollment;
     }
 
-    public void setEnrollement(Enrollement enrollement) {
-        this.enrollement = enrollement;
+    public void setEnrollement(Enrollment enrollement) {
+        this.enrollment = enrollement;
     }
 
     public Lesson getLesson() {
@@ -129,7 +129,7 @@ public class Deliver {
                 ", status=" + status +
                 ", feedback='" + feedback + '\'' +
                 ", correctCount=" + correctCount +
-                ", enrollement=" + enrollement +
+                ", enrollement=" + enrollment +
                 ", lesson=" + lesson +
                 '}';
     }
