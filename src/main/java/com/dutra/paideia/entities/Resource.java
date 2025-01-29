@@ -10,11 +10,11 @@ import java.util.Objects;
 @Entity
 @Table(name = "tb_resource")
 public class Resource {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Long position;
     private String imgUrl;
@@ -24,7 +24,7 @@ public class Resource {
     @JoinColumn(name = "offer_id")
     private Offer offer;
     @OneToMany(mappedBy = "resource")
-    private List<Section> sections = new ArrayList<>();
+    private final List<Section> sections = new ArrayList<>();
 
     public Resource() {}
     public Resource(Long id, String title, String description,
