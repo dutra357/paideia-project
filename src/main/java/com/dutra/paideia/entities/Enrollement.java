@@ -14,9 +14,9 @@ import java.util.Objects;
 public class Enrollement {
     @EmbeddedId
     private final EnrollmentPK id = new EnrollmentPK();
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant enrollMoment;
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant refundMoment;
     private boolean available;
     private boolean onlyAvailable;

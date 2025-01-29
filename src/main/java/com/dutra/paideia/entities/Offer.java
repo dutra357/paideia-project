@@ -14,7 +14,9 @@ public class Offer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String edition;
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant startMoment;
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant endMoment;
     @ManyToOne
     @JoinColumn(name = "course_id")
