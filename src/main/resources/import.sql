@@ -41,3 +41,6 @@ INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, du
 
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
+
+INSERT INTO tb_deliver (uri,moment, status, feedback, correct_Count, lesson_id, user_id, offer_id) VALUES ('https://github.com/dutra357', TIMESTAMP WITH TIME ZONE '2024-01-25T13:00:00Z', 0, null, null, 4, 1, 1);
+
