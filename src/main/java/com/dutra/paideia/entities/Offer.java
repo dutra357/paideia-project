@@ -3,6 +3,8 @@ package com.dutra.paideia.entities;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +19,8 @@ public class Offer {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+    @OneToMany(mappedBy = "offer")
+    List<Resource> resources = new ArrayList<>();
 
     public Offer() {}
     public Offer(Long id, String edition, Instant startMoment, Instant endMoment, Course course) {
@@ -25,6 +29,10 @@ public class Offer {
         this.endMoment = endMoment;
         this.course = course;
         this.edition = edition;
+    }
+
+    public List<Resource> getResources() {
+        return resources;
     }
 
     public Long getId() {

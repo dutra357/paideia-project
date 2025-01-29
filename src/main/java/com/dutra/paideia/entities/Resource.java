@@ -18,6 +18,8 @@ public class Resource {
     private String imgUrl;
     private String externalLink;
     private ResourceType type;
+    @ManyToOne
+    @JoinColumn(name = "offer_id")
     private Offer offer;
 
     public Resource() {}
