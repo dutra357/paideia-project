@@ -27,4 +27,17 @@ INSERT INTO tb_section (title, description, position, img_url, resource_id, prer
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_Available) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2024-01-25T13:00:00Z', null, true, false);
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_Available) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2024-01-25T13:00:00Z', null, true, false);
 
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1', 1, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (1, 'Material de apoio: clique', 'https://www.youtube.com/watch?v=sqbqoR-lMf8');
 
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2', 2, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (2, '', 'https://www.youtube.com/watch?v=sqbqoR-lMf8');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 3', 3, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (3, '', 'https://www.youtube.com/watch?v=sqbqoR-lMf8');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Tarefa - Cap. 01', 4, 1);
+INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, due_Date) VALUES (4, 'Tarefa de exemplo', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2024-01-25T07:00:00Z');
+
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
