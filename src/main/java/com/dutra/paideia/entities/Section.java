@@ -14,7 +14,7 @@ public class Section {
     private String title;
     private String description;
     private Long position;
-    private String imgUrl;
+    private String imgUri;
     @ManyToOne
     @JoinColumn(name = "resource_id")
     private Resource resource;
@@ -24,12 +24,12 @@ public class Section {
 
     public Section() {}
     public Section(Long id, String title, String description,
-                   Long position, String imgUrl, Resource resource, Section prerequisite) {
+                   Long position, String imgUri, Resource resource, Section prerequisite) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.position = position;
-        this.imgUrl = imgUrl;
+        this.imgUri = imgUri;
         this.resource = resource;
         this.prerequisite = prerequisite;
     }
@@ -66,12 +66,12 @@ public class Section {
         this.position = position;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImgUri() {
+        return imgUri;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
     }
 
     public Resource getResource() {
@@ -110,7 +110,7 @@ public class Section {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", position=" + position +
-                ", imgUrl='" + imgUrl + '\'' +
+                ", imgUrl='" + imgUri + '\'' +
                 ", resource=" + resource +
                 ", prerequisite=" + prerequisite +
                 '}';

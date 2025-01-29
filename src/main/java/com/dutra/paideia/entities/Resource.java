@@ -17,7 +17,7 @@ public class Resource {
     @Column(columnDefinition = "TEXT")
     private String description;
     private Long position;
-    private String imgUrl;
+    private String imgUri;
     private String externalLink;
     private ResourceType type;
     @ManyToOne
@@ -28,13 +28,13 @@ public class Resource {
 
     public Resource() {}
     public Resource(Long id, String title, String description,
-                    Long position, String imgUrl, String externalLink,
+                    Long position, String imgUri, String externalLink,
                     ResourceType type, Offer offer) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.position = position;
-        this.imgUrl = imgUrl;
+        this.imgUri = imgUri;
         this.externalLink = externalLink;
         this.type = type;
         this.offer = offer;
@@ -76,12 +76,12 @@ public class Resource {
         this.position = position;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImgUri() {
+        return imgUri;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
     }
 
     public String getExternalLink() {
@@ -128,7 +128,7 @@ public class Resource {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", position=" + position +
-                ", imgUrl='" + imgUrl + '\'' +
+                ", imgUrl='" + imgUri + '\'' +
                 ", externalLink='" + externalLink + '\'' +
                 ", type=" + type +
                 ", offer=" + offer +

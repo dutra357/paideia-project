@@ -23,7 +23,7 @@ public class Reply {
     private Topic topic;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "author_id")
     private User author;
 
     @ManyToMany

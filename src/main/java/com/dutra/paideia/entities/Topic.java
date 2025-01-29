@@ -21,7 +21,7 @@ public class Topic {
     private Instant moment;
 
     @ManyToOne
-    @JoinColumn(name = "autor_id")
+    @JoinColumn(name = "author_id")
     private User author;
 
     @ManyToOne
@@ -40,6 +40,9 @@ public class Topic {
 
     @OneToMany(mappedBy = "topic")
     private final List<Reply> replies = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
 
 
     public Topic() {}
@@ -114,6 +117,14 @@ public class Topic {
 
     public List<Reply> getReplies() {
         return replies;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
     }
 
     @Override

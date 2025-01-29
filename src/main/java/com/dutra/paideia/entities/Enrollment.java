@@ -16,7 +16,7 @@ public class Enrollment {
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant refundMoment;
     private boolean available;
-    private boolean onlyAvailable;
+    private boolean onlyUpdate;
     @ManyToMany(mappedBy = "enrollmentsDone")
     private final Set<Lesson> lessonsDone = new HashSet<>();
     @OneToMany(mappedBy = "enrollment")
@@ -25,11 +25,11 @@ public class Enrollment {
     public Enrollment() {}
     public Enrollment(User user, Offer offer,
                       Instant enrollMoment, Instant refundMoment,
-                      boolean available, boolean onlyAvailable) {
+                      boolean available, boolean onlyUpdate) {
         this.enrollMoment = enrollMoment;
         this.refundMoment = refundMoment;
         this.available = available;
-        this.onlyAvailable = onlyAvailable;
+        this.onlyUpdate = onlyUpdate;
         id.setUser(user);
         id.setOffer(offer);
     }
@@ -74,12 +74,12 @@ public class Enrollment {
         this.available = available;
     }
 
-    public boolean isOnlyAvailable() {
-        return onlyAvailable;
+    public boolean isOnlyUpdate() {
+        return onlyUpdate;
     }
 
-    public void setOnlyAvailable(boolean onlyAvailable) {
-        this.onlyAvailable = onlyAvailable;
+    public void setOnlyUpdate(boolean onlyUpdate) {
+        this.onlyUpdate = onlyUpdate;
     }
 
     public EnrollmentPK getId() {
