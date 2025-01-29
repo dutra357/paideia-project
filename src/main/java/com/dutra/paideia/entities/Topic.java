@@ -1,13 +1,9 @@
-package com.dutra.paideia;
+package com.dutra.paideia.entities;
 
-import com.dutra.paideia.entities.Offer;
-import com.dutra.paideia.entities.User;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_topic")
@@ -37,6 +33,14 @@ public class Topic {
             joinColumns = @JoinColumn(name = "topic_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private final Set<User> likes = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "reply_id")
+    private Reply answer;
+
+    @OneToMany(mappedBy = "topic")
+    private final List<Reply> replies = new ArrayList<>();
+
 
     public Topic() {}
     public Topic(Long id, String title, String body, Instant moment, User author, Offer offer) {
@@ -98,6 +102,18 @@ public class Topic {
 
     public Set<User> getLikes() {
         return likes;
+    }
+
+    public Reply getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Reply answer) {
+        this.answer = answer;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
     }
 
     @Override
