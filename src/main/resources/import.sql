@@ -19,3 +19,7 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('2.0
 INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) VALUES ('Trilha HTML', 'Trilha principal do curso', 1, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, 1);
 INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) VALUES ('Fórum', 'Tire suas dúvidas', 2, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 2, 1);
 INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) VALUES ('Lives', 'Lives exclusivas para membros', 3, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 0, 1);
+
+INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 1', 'Neste capítulo vamos estudar HTML', 1, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, null);
+INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 2', 'Tempo de estudar CSS', 2, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, 1);
+INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 3', 'JavaScript e Front-end', 3, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, 2);
