@@ -23,3 +23,8 @@ INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) 
 INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 1', 'Neste capítulo vamos estudar HTML', 1, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, null);
 INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 2', 'Tempo de estudar CSS', 2, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, 1);
 INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 3', 'JavaScript e Front-end', 3, 'www.fsa.br/wp-content/uploads/bruxas.jpg', 1, 2);
+
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_Available) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2024-01-25T13:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_Available) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2024-01-25T13:00:00Z', null, true, false);
+
+
